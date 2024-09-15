@@ -1,0 +1,162 @@
+@import url(./normalize.css);
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    padding: 5%;
+    width: 80%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2%;
+    box-shadow: 1vw 1vw 8vw gray;
+    background-color: rgb(244, 244, 244);
+}
+
+.memes {
+    display: flex;
+    justify-content: center;
+    justify-content: flex-start;
+}
+
+.meme {
+    width: 0;
+}
+
+.meme .meme1,
+.meme .meme2,
+.meme .meme3,
+.meme .meme4 {
+    width: 70vw;
+    height: fit-content;
+    scale: 1;
+}
+
+.meme1,
+.meme2,
+.meme3,
+.meme4 {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.stuff {
+    margin-top: 2vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.text {
+    display: flex;
+    align-items: center;
+    height: 0;
+}
+
+.memetext1,
+.memetext2,
+.memetext3,
+.memetext4 {
+    display: none;
+    opacity: 0;
+    transition-property: display opacity;
+    transition-duration: 0.1s;
+    transition-behavior: allow-discrete;
+}
+
+span {
+    width: 0;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 4vw;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1vw;
+}
+
+input {
+    width: 0;
+    height: 0;
+}
+
+label {
+    display: inline-block;
+    content: "";
+    width: 2vw;
+    height: 2vw;
+    background-color: white;
+    border: 1px solid black;
+}
+
+label:hover {
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1vw solid grey;
+    background-color: black;
+}
+
+
+#btn1:checked ~ .slider img.meme1,
+#btn2:checked ~ .slider img.meme2,
+#btn3:checked ~ .slider img.meme3,
+#btn4:checked ~ .slider img.meme4 {
+    opacity: 1;
+}
+
+#btn1:checked ~ .slider .memetext1,
+#btn2:checked ~ .slider .memetext2,
+#btn3:checked ~ .slider .memetext3,
+#btn4:checked ~ .slider .memetext4 {
+    display: inline;
+    opacity: 1;
+
+    @starting-style {
+        opacity: 0;
+    };
+}
+
+#btn1:checked ~ .slider .controls label[for="btn1"] {
+    background-color: black;
+}
+#btn2:checked ~ .slider .controls label[for="btn2"] {
+    background-color: black;
+}
+#btn3:checked ~ .slider .controls label[for="btn3"] {
+    background-color: black;
+}
+#btn4:checked ~ .slider .controls label[for="btn4"] {
+    background-color: black;
+}
+
+
+@media screen and (width <= 500px) {
+    .stuff {
+        flex-direction: column;
+    }
+
+    .text {
+        margin-top: 2vh;
+        order: 2;
+    }
+    
+    .controls {
+        order: 1;
+    }
+
+    label {
+        width: 4vw;
+        height: 4vw;
+    }
+
+    .controls {
+        gap: 2vw;
+    }
+}

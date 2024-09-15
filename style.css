@@ -9,11 +9,12 @@ body {
 
 .slider {
     padding: 5%;
-    width: 80vw;
+    width: 80%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
-    box-shadow: 2vw 3vw 4vw gray;
+    border-radius: 2%;
+    box-shadow: 1vw 1vw 8vw gray;
     background-color: rgb(244, 244, 244);
 }
 
@@ -32,7 +33,7 @@ body {
 .meme .meme3,
 .meme .meme4 {
     width: 70vw;
-    height: 100%;
+    height: fit-content;
     scale: 1;
 }
 
@@ -45,18 +46,24 @@ body {
 }
 
 .stuff {
-    margin-top: 3vh;
+    margin-top: 2vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
 
+.text {
+    display: flex;
+    align-items: center;
+    height: 0;
+}
 
 .memetext1,
 .memetext2,
 .memetext3,
 .memetext4 {
+    display: none;
     opacity: 0;
     transition: opacity 0.3s;
 }
@@ -106,6 +113,7 @@ label:hover {
 #btn2:checked ~ .slider .memetext2,
 #btn3:checked ~ .slider .memetext3,
 #btn4:checked ~ .slider .memetext4 {
+    display: inline;
     opacity: 1;
 }
 
@@ -127,7 +135,8 @@ label:hover {
         flex-direction: column;
     }
 
-    .memetext {
+    .text {
+        margin-top: 2vh;
         order: 2;
     }
     

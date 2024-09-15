@@ -13,7 +13,7 @@ body {
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    box-shadow: 10px 10px 10px gray;
+    box-shadow: 2vw 3vw 4vw gray;
     background-color: rgb(244, 244, 244);
 }
 
@@ -45,23 +45,24 @@ body {
 }
 
 .stuff {
-    margin-top: 30px;
+    margin-top: 3vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: nowrap;
+    width: 100%;
 }
 
-.memetext .memetext1,
-.memetext .memetext2,
-.memetext .memetext3,
-.memetext .memetext4 {
-    display: none;
+
+.memetext1,
+.memetext2,
+.memetext3,
+.memetext4 {
     opacity: 0;
     transition: opacity 0.3s;
 }
 
 span {
+    width: 0;
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: 4vw;
 }
@@ -80,15 +81,16 @@ input {
 label {
     display: inline-block;
     content: "";
-    width: 15px;
-    height: 15px;
+    width: 2vw;
+    height: 2vw;
     background-color: white;
     border: 1px solid black;
 }
 
 label:hover {
     cursor: pointer;
-    border: 1px solid black;
+    transition: 0.3s;
+    border: 1vw solid grey;
     background-color: black;
 }
 
@@ -104,7 +106,6 @@ label:hover {
 #btn2:checked ~ .slider .memetext2,
 #btn3:checked ~ .slider .memetext3,
 #btn4:checked ~ .slider .memetext4 {
-    display: block;
     opacity: 1;
 }
 
@@ -119,4 +120,27 @@ label:hover {
 }
 #btn4:checked ~ .slider .controls label[for="btn4"] {
     background-color: black;
+}
+
+@media screen and (width <= 500px) {
+    .stuff {
+        flex-direction: column;
+    }
+
+    .memetext {
+        order: 2;
+    }
+    
+    .controls {
+        order: 1;
+    }
+
+    label {
+        width: 4vw;
+        height: 4vw;
+    }
+
+    .controls {
+        gap: 2vw;
+    }
 }
